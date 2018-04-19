@@ -40,7 +40,8 @@ do(State) ->
                      filename:join([rebar_dir:base_dir(State), "bin", "cuttlefish"]);
                  false ->
                      case filelib:wildcard(filename:join(["_checkouts", "cuttlefish*", "cuttlefish"])) ++
-                         filelib:wildcard(filename:join(["_build", "*", "bin", "cuttlefish"])) of
+                         filelib:wildcard(filename:join(["_build", "*", "cuttlefish*", "cuttlefish"])) ++
+                         filelib:wildcard(filename:join(["_build", "*", "lib", "cuttlefish", "cuttlefish"])) of
                          [C | _] ->
                              C;
                          [] ->
